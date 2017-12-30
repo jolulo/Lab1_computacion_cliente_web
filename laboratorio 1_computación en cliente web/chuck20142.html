@@ -11,16 +11,23 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
       
-
+<!--inclusión del plugin para consumir el servicio de la api web de sitio de bromas-->
 <script src="jquery.icndb.min.js" type="text/javascript"></script>
 
 
         <script>
-
+         //función para llamar las acciones solo cuando el
+        //el documento se encuentre listo
         $(document).ready(function(){
+           //llamado al metodo que consulta 10 bromas aleatorias
+           //parametro de 10 bromas a generar
            $.icndb.getRandomJokes({ 
-    		number: 10, 
+            number: 10, 
+            //si retorna consulta exitosa
     		success: (response) => {
+            //por cada elemento que traiga la consulta, se agrega un elemento de lista
+            //con el texto de la broma, se uso una etiqueta <li> para la lista y un hiperviculo para 
+            //generar el efecto hover.
  			response.forEach(element => { $("ul").append('<li ><a href="#" class="list-group-item" >' + element.joke + '</a></li>'); });
 			}});
 
@@ -28,11 +35,11 @@
             </script>
     </head>
     <body>
-
+          <!-- Div que contiene el titulo-->
         <div class="jumbotron">
             <h1>Lista de chistes</h1>
         </div>
-
-                    <ul class= "list-group hover"></ul>
+        <!-- Ul, la lista donde se desplegaran las bromas consultadas-->
+         <ul class= "list-group hover"></ul>
     </body>
 </html>
