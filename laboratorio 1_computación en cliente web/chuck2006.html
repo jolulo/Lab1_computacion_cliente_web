@@ -1,0 +1,32 @@
+<html>
+    <head>
+   <!--inclusión del framework bootstrap en la página, a traves de su CDN-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--Inclusión de la libreria Jquery a travez de la página de Google-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+                //función para llamar las acciones solo cuando el
+                //el documento se encuentre listo
+                $(document).ready(function(){
+                    //uso de la función get de Jquery para invocar la página del servicio
+                    //y se define que hacer en el caso que se obtenga una respuesta
+                    $.get("http://api.icndb.com/jokes/random", (response) => {
+                    //se captura el contenido del chiste en una variable
+                    var textoChiste = response.value.joke;
+                    //se despliega el chiste en las etiquetas H1
+                    $('h1').text(textoChiste);
+                    })
+                });
+            </script>
+    </head>
+    <body>
+      <!-- Div que contendra los chistes, usando estilo provisto por bootstrap-->
+        <div class="jumbotron">
+            <h1></h1>  
+        </div>
+    </body>
+</html>

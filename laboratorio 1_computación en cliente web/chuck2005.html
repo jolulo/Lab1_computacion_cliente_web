@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <!--inclusión del framework bootstrap en la página, a traves de su CDN-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            //objeto para realizar peticiones
+            xmlhttp = new XMLHttpRequest();
+            //apertura de la conexión por metodo GET
+            xmlhttp.open('GET', 'http://api.icndb.com/jokes/random/', true);
+            //función par parsear el chiste recibido del servicio y renderizarlo en un 
+            //elemento html en este caso un encabezado
+            xmlhttp.onreadystatechange = function(){
+                var textoChiste = JSON.parse(this.response).value.joke;
+                var h1s = document.getElementsByTagName('h1');
+                h1s[0].innerHTML = textoChiste;
+
+            }
+
+            xmlhttp.send();
+            </script>
+    </head>
+    <body>
+        <!-- Div que contendra los chistes, usando estilo provisto por bootstrap-->
+        <div class="jumbotron">
+            <h1></h1>
+            
+        </div>
+
+
+    </body>
+</html>

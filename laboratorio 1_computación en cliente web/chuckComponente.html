@@ -1,0 +1,38 @@
+<html>
+    <head>
+         <!-- Latest compiled and minified CSS -->
+         <link rel="stylesheet" href="bower_components/skeleton-framework/dist/skeleton.min.css">
+         <link rel="stylesheet" href="bower_components/skeleton-framework/dist/skeleton.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<link rel="import" href="bower_components/chuck-norris-joke/chuck-norris-joke.html">
+
+<script>
+    $(document).ready(function(){
+      
+      for(var i =0; i < 10;i++){
+          $("#tabla").append("<tr><td><chuck-norris-joke></chuck-norris-joke></td></tr>");
+      }
+    
+    });
+</script>
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1></h1>
+            
+        </div>
+        <div  id="jokes" class="container">
+            <table id="tabla">
+            <tr>
+                <th>Generaci&oacute;n de 10 chistes en una tabla</th>
+            </tr>
+            
+            </table>
+
+        </div>
+
+    </body>
+</html>
